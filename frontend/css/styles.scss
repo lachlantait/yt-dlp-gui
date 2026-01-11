@@ -1,0 +1,26 @@
+@import "../../node_modules/bootstrap/scss/functions";
+
+$primary: #D47BBC;
+$body-bg-dark: #121212;
+$card-bg: #1E1E1E;
+$card-border-color: tint-color($card-bg, 10%);
+$input-bg: #2C2C2C;
+$input-border-color: tint-color($input-bg, 10%);
+$input-color: #FFFFFF;
+$form-label-color: #FFFFFF;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    color: shade-color(#FFFFFF, 10%);
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yt-dlp gui</title>
+
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body data-bs-theme="dark">
+    <div class="container d-flex flex-column vh-100 justify-content-between align-items-center">
+        <div class="row my-5">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="text-primary fw-bold">yt-dlp gui</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <span>Version 1.0.0</span>
+                </div>
+            </div>
+        </div>
+        <div class="row w-75">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body d-flex flex-column justify-content-between align-items-center p-4">
+                        <form id="downloadForm" class="w-100">
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <label for="url" class="form-label">URL</label>
+                                    <input
+                                        type="url"
+                                        id="url"
+                                        name="url"
+                                        placeholder="Enter URL"
+                                        required
+                                        class="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <label for="downloadLocation" class="form-label">Download Location</label>
+                                    <input
+                                        type="text"
+                                        id="downloadLocation"
+                                        name="downloadLocation"
+                                        placeholder="Enter download location"
+                                        required
+                                        class="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <label for="folderName" class="form-label">Download Folder Name</label>
+                                    <input
+                                        type="text"
+                                        id="folderName"
+                                        name="folderName"
+                                        placeholder="Enter download folder name"
+                                        required
+                                        class="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div id="dropdownsSection">
+                                <div class="row mb-4">
+                                    <div class="col-4">
+                                        <label for="extractAudio" class="form-label">Format</label>
+                                        <select id="extractAudio" name="extractAudio" class="form-select">
+                                            <option value="" selected>Video</option>
+                                            <option value="true">Audio only</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="checkboxesSection" class="my-5 text-nowrap">
+                                <div class="row mb-4">
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                id="writeLink"
+                                                name="writeLink"
+                                                class="form-check-input"
+                                            />
+                                            <label for="writeLink" class="form-check-label">Write Link</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                id="writeThumbnail"
+                                                name="writeThumbnail"
+                                                class="form-check-input"
+                                            />
+                                            <label for="writeThumbnail" class="form-check-label">Write Thumbnail</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                id="writeDescription"
+                                                name="writeDescription"
+                                                class="form-check-input"
+                                            />
+                                            <label for="writeDescription" class="form-check-label">Write Description</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                id="writeInfoJson"
+                                                name="writeInfoJson"
+                                                class="form-check-input"
+                                            />
+                                            <label for="writeInfoJson" class="form-check-label">Write Info JSON</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                id="writeComments"
+                                                name="writeComments"
+                                                class="form-check-input"
+                                            />
+                                            <label for="writeComments" class="form-check-label">Write Comments</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Download</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col">
+                <span>Developed by Lachlan Tait</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Disallow entering '/' and '\' characters in folder name field
+
+        const folderNameInput = document.getElementById('folderName');
+
+        folderNameInput.addEventListener('input', () => {
+            folderNameInput.value = folderNameInput.value.replace(/[\/\\]/g, ''); // matches '/' and '\' characters
+        });
+    </script>
+    
+    <script src="js/submitDownloadForm.js"></script>
+</body>
+</html>
