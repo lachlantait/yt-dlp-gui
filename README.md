@@ -1,4 +1,4 @@
-# yt-dlp gui (private)
+# yt-dlp gui
 
 Web-based frontend + backend for yt-dlp (https://github.com/yt-dlp/yt-dlp).
 
@@ -27,5 +27,4 @@ This is just a simple wrapper for yt-dlp. The frontend is just local web files w
 
 ### Side-by-side with terminal window running the backend (output after clicking Download)
 <img width="1920" height="1049" alt="screenshot side by side with terminal with details" src="https://github.com/user-attachments/assets/196e169a-28a7-4495-b4d9-0aa57a884d3c" />
-
 <img width="1920" height="1045" alt="screenshot side by side with terminal with details" src="https://github.com/user-attachments/assets/6762efab-8988-4a7a-8fd8-2356f9eb30bd" />
