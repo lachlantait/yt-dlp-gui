@@ -17,7 +17,7 @@ This is just a simple wrapper for yt-dlp. The frontend is just local web files w
 - If you have ffmpeg installed and wish to use it, open "config.js", and change the value of FFMPEG_LOCATION to the full Windows path where the ffmpeg binary is located.
 
 ### To use
-- Open "frontend/index.html" (or use the shortcut "start-frontend").
+- Open "frontend/index.html" (or run "start-frontend.bat", which just opens the index.html file).
 - Run "start-backend.bat", which should open a terminal window running the backend.
 - Enter your desired options into the frontend and click "Download", you should then see the yt-dlp output via the backend terminal window.
 
