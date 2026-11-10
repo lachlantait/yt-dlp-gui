@@ -29,9 +29,9 @@ export async function download(request, response) {
     writeDescription = false,
     writeInfoJson = false,
     writeComments = false,
+    embedChapters = false,
     // TODO: Format and quality?
     // TODO: Subs?
-    // TODO: Embed chapters?
   } = request.body;
 
   // Build up args array to pass to yt-dlp process
@@ -61,6 +61,8 @@ export async function download(request, response) {
     args.push('--write-info-json');
   if (writeComments)
     args.push('--write-comments');
+  if (embedChapters)
+    args.push('--embed-chapters');
 
   args.push('--embed-thumbnail'); // Always enabled
 
