@@ -2,13 +2,17 @@ import { spawn } from 'child_process';
 import { FFMPEG_LOCATION } from '../../config.js';
 import path from 'path';
 
-function getWindowsSafePath(downloadLocation, folderName) {
-  // TODO: Improve this function
+function getDownloadPath(downloadLocation, folderName) {
+  // downloadLocation: Trim whitespace and remove quotation marks ("") if present
+  const cleanedDownloadLocation = downloadLocation.trim().replace(/^"(.*)"$/, '$1');
 
-  // Trim leading/trailing whitespace, normalise/join the path
-  let safePath = path.join(downloadLocation.trim(), folderName.trim());
+  // folderName: Trim whitespace
+  const cleanedFolderName = folderName.trim();
 
-  return safePath;
+  // Normalise/join the path
+  const downloadPath = path.join(cleanedDownloadLocation, cleanedFolderName);
+
+  return downloadPath;
 }
 
 export async function download(request, response) {
@@ -33,7 +37,7 @@ export async function download(request, response) {
   // Build up args array to pass to yt-dlp process
   const args = [];
 
-  const path = getWindowsSafePath(downloadLocation, folderName);
+  const path = getDownloadPath(downloadLocation, folderName);
   args.push('-P', path);
 
   // Options from select dropdowns
